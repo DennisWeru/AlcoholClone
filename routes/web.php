@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +15,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SiteController::class, 'welcome'])->name('home.page');
+Route::get('/about', [SiteController::class, 'about_us'])->name('about');
+Route::get('/shop', [SiteController::class, 'shop'])->name('shop');
+Route::get('/single/category/{uniqid}', [SiteController::class, 'single_category'])->name('single.category');
+Route::get('/cart/page', [SiteController::class, 'cart_page'])->name('cart.page');
+Route::get('/order/drink/', [SiteController::class, 'order_drink'])->name('order.drink');
+Route::post('/post/user/details', [SiteController::class, 'post_user_details'])->name('post.user.details');
+Route::get('/checkout/final/{uniqid}', [SiteController::class, 'checkout_final'])->name('checkout.final');
+Route::get('/finish/order/{uniqid}', [SiteController::class, 'finish_order'])->name('finish.order');
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/add/product', [ProductController::class, 'add_product'])->name('add.product');
+    Route::get('/add/location', [SiteController::class, 'add_location'])->name('add.location');
+    Route::post('/post/location', [SiteController::class, 'post_location'])->name('post.location');
+    Route::get('/add/category', [ProductController::class, 'add_category'])->name('add.category');
+    Route::get('/all/products', [ProductController::class, 'all_products'])->name('all.products');
+    Route::get('/add/portfolio', [SiteController::class, 'add_portfolio'])->name('add.portfolio');
+    Route::get('/edit/product/{uniqid}', [ProductController::class, 'edit_product'])->name('edit.product');
+    Route::get('/delete/product/{uniqid}', [ProductController::class, 'delete_product'])->name('delete.product');
+    Route::get('/view/details/{uniqid}', [SiteController::class, 'view_details'])->name('view.details');
+    Route::post('/post/product', [ProductController::class, 'post_product'])->name('post.product');
+    Route::post('/post/category', [ProductController::class, 'post_category'])->name('post.category');
+    Route::post('/post/portfolio', [SiteController::class, 'post_portfolio'])->name('post.portfolio');
+    Route::post('/post/edit/product', [ProductController::class, 'post_edit_product'])->name('post.edit.product');
+
+});

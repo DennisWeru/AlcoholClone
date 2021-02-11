@@ -71,7 +71,13 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('add.product') }}    ">
+                    <a class="nav-link" href="{{ route('home') }}">
+                        <i class="fa fa-home text-primary"></i> {{ __('Home') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('add.product') }}">
                         <i class="fa fa-cart-plus text-primary"></i> {{ __('Add Product') }}
                     </a>
                 </li>
@@ -84,49 +90,23 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('add.portfolio') }}">
-                        <i class="fa fa-user text-primary"></i> {{ __('Add Portfolio') }}
+                        <i class="fa fa-user-plus text-primary"></i> {{ __('Add Portfolio') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('add.testimonial') }}">
-                        <i class="fa fa-book text-primary"></i> {{ __('Add Testimonial') }}
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('edit.portfolio') }}">
-                        <i class="fa fa-pencil-h text-primary"></i> {{ __('Edit Portfolio') }}
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('add.slider') }}">
-                        <i class="fa fa-sliders-h text-primary"></i> {{ __('Add Slider Photo') }}
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('add.service.offered') }}">
-                        <i class="fa fa-wrench text-primary"></i> {{ __('Add Service Offered') }}
-                    </a>
-                </li>
-
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.all.products') }}">
+                    <a class="nav-link" href="{{ route('all.products') }}">
                         <i class="fa fa-shopping-cart text-primary"></i> {{ __('All Products(edit/delete)') }}
                     </a>
-                </li> --}}
+                </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.all.categories') }}">
-                        <i class="fa fa-shopping-cart text-primary"></i> {{ __('All Categories(edit/delete)') }}
+                    <a class="nav-link" href="{{ route('add.location') }}">
+                        <i class="fa fa-map-marker text-primary"></i> {{ __('Add New Location') }}
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('send.newsletter') }}">
-                        <i class="fa fa-envelope text-primary"></i> {{ __('Send Newsletter') }}
-                    </a>
-                </li>
+
+
 
 
                         </ul>
