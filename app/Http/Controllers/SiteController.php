@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 use \App\Porfolio;
 use \App\Product;
 use \App\Category;
+use \App\Contact;
 use \App\Location;
 use \App\Cart;
 use \App\Admin;
+use \App\Newsletter;
+use \App\Subscriber;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use App\Notifications\OrderReceivedSuccessfully;
 use App\Notifications\ConfirmOrder;
+use App\Notifications\ContactUs;
+use App\Notifications\NewsletterSent;
 
 class SiteController extends Controller
 {
@@ -275,4 +280,96 @@ class SiteController extends Controller
         $final_price = $total_price + (int) $location->logistical_price;
         return view('admin.view_details',compact('cart','all_products','location','final_price'));
     }
+
+    public function contact_us(Request $request)
+    {
+        return view('site.contact');
+    }
+
+    public function post_contact_us(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:190',
+            'email' => 'required|max:190',
+            'message' => 'required',
+
+
+        ]);
+        $contact = Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
+            'uniqid' => uniqid()
+        ]);
+        $subscriber_exists = Subscriber::where('email','=',$request->email)->get()->count();
+        if($subscriber_exists == 0)
+        {
+            $subscriber = Subscriber::create([
+                'email' => $request->email,
+                'uniqid' => uniqid()
+            ]);
+        }
+
+        $all_admin = Admin::get();
+        for($i=0;$i<$all_admin->count();$i++)
+        {
+            $admin = $all_admin[$i];
+            $admin->notify(new ContactUs($admin,$contact));
+        }
+        Log::info("Message Sent Successfully");
+        $request->session()->flash("success","Message Sent Successfully");
+        return redirect()->back();
+    }
+
+    public function subscribe_newsletter(Request $request)
+    {
+        $subscriber_exists = Subscriber::where('email','=',$_GET['email'])->get()->count();
+        // return $subscriber_exists;
+        if ($subscriber_exists == 0) {
+            $subscriber = Subscriber::create([
+            'email' => $_GET['email'],
+            'uniqid' => uniqid()
+        ]);
+        return 'done';
+        }
+        else {
+            return 'already subscribed';
+        }
+
+
+    }
+
+    public function send_newsletter(Request $request)
+    {
+
+        return view('admin.send_newsletter');
+    }
+
+    public function post_newsletter(Request $request)
+    {
+
+        $this->validate($request, [
+            'title' => 'required',
+            'message' => 'required|min:500',
+
+
+        ]);
+        $newsletter = Newsletter::create([
+            'title' => $request->title,
+            'message' => $request->message,
+            'uniqid' => uniqid()
+        ]);
+        $all_subscribers = Subscriber::get();
+        for($i=0;$i<$all_subscribers->count();$i++)
+        {
+            $subscriber = $all_subscribers[$i];
+            $subscriber->notify(new NewsletterSent($subscriber,$newsletter));
+        }
+
+        Log::info("Newsletter Sent Successful");
+        $request->session()->flash("success","Newsletter Sent Successful");
+        return redirect()->route('home.page');
+
+    }
+
 }

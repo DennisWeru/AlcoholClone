@@ -24,6 +24,9 @@ Route::get('/order/drink/', [SiteController::class, 'order_drink'])->name('order
 Route::post('/post/user/details', [SiteController::class, 'post_user_details'])->name('post.user.details');
 Route::get('/checkout/final/{uniqid}', [SiteController::class, 'checkout_final'])->name('checkout.final');
 Route::get('/finish/order/{uniqid}', [SiteController::class, 'finish_order'])->name('finish.order');
+Route::get('/contact/us/', [SiteController::class, 'contact_us'])->name('contact.us');
+Route::post('/contact/us/post', [SiteController::class, 'post_contact_us'])->name('post.contact.us');
+Route::get('/subscribe/newsletter', [SiteController::class, 'subscribe_newsletter'])->name('subscribe.newsletter');
 
 
 Auth::routes();
@@ -31,7 +34,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
-
+//Admin Routes
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/add/product', [ProductController::class, 'add_product'])->name('add.product');
@@ -40,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/add/category', [ProductController::class, 'add_category'])->name('add.category');
     Route::get('/all/products', [ProductController::class, 'all_products'])->name('all.products');
     Route::get('/add/portfolio', [SiteController::class, 'add_portfolio'])->name('add.portfolio');
+    Route::get('/send/newsletter', [SiteController::class, 'send_newsletter'])->name('newsletter.form');
     Route::get('/edit/product/{uniqid}', [ProductController::class, 'edit_product'])->name('edit.product');
     Route::get('/delete/product/{uniqid}', [ProductController::class, 'delete_product'])->name('delete.product');
     Route::get('/view/details/{uniqid}', [SiteController::class, 'view_details'])->name('view.details');
@@ -47,5 +51,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/post/category', [ProductController::class, 'post_category'])->name('post.category');
     Route::post('/post/portfolio', [SiteController::class, 'post_portfolio'])->name('post.portfolio');
     Route::post('/post/edit/product', [ProductController::class, 'post_edit_product'])->name('post.edit.product');
+    Route::post('/post/newsletter', [SiteController::class, 'post_newsletter'])->name('post.newsletter');
 
 });

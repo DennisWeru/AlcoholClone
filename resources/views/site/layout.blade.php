@@ -395,9 +395,9 @@
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
 						<li><a href="{!! route('about') !!}">About Us</a></li>
-						<li class="has-dropdown">
+						<li>
 							<a href="{!! route('shop') !!}">Shop</a>
-							<ul class="dropdown">
+							{{-- <ul class="dropdown">
                                 @php
                                 $categories = App\Category::get();
 
@@ -407,10 +407,10 @@
                                 <li><a href="{{ route('single.category',[$value->uniqid]) }}">{!! $value->name !!}</a></li>
                                 @endforeach
 
-							</ul>
+							</ul> --}}
 						</li>
-						<li><a href="blog.html">Blog</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						{{-- <li><a href="blog.html">Blog</a></li> --}}
+						<li><a href="{!! route('contact.us') !!}">Contact Us</a></li>
 						<li>
 
 								@php
@@ -431,14 +431,14 @@
 
 
     @yield('content')
-    {{-- --}}
+
 
     <div id="gtco-subscribe">
         <div class="gtco-container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-                    <h2 class="cursive-font">Subscribe</h2>
-                    <p>Be the first to know about the new templates.</p>
+                    <h2 class="cursive-font">Subscribe To Our Newsletter</h2>
+                    <p></p>
                 </div>
             </div>
             <div class="row animate-box">
@@ -447,11 +447,15 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group">
                                 <label for="email" class="sr-only">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <input type="email" class="form-control email_field" id="email" placeholder="Your Email" required>
+                                <p class="success_message" style="display:none;color:lightgreen">Subscription Successful</p>
+                                <p class="failed_message" style="display:none;color:red">Already Subscribed</p>
+
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <button type="submit" class="btn btn-default btn-block">Subscribe</button>
+                            <button type="submit"  class="btn btn-default btn-block subscribe-btn">Subscribe</button>
+
                         </div>
                     </form>
                 </div>
@@ -533,6 +537,32 @@
     <script src="/assets/js/main.js"></script>
     <script>
         $(document).ready(function(){
+            $('.subscribe-btn').click(function(e){
+                e.preventDefault();
+                var email_field = $('.email_field').val();
+                // alert(email_field)
+                $.ajax({
+                    url: '/subscribe/newsletter',
+                    type: 'GET',
+                    data: { email:email_field},
+                    success:function(response){
+                        alert(response);
+                        if(response == 'done')
+                        {
+                            $('success_message').show();
+                            $('failed_message').hide();
+                        }
+                        else
+                        {
+                            $('success_message').hide();
+                            $('failed_message').fadeIn();
+                        }
+                        // $('.cart_length').text(response);
+                    }
+
+    });
+
+            });
             $('.add-cart').click(function(e){
                 e.preventDefault();
                 var uniqid = $(this).attr('id');

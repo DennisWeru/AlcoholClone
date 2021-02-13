@@ -9,7 +9,7 @@
 
                 <div class="row row-mt-15em">
                     <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-                        <span class="intro-text-small">Hand-crafted by <a href="http://gettemplates.co" target="_blank">GetTemplates.co</a></span>
+                        {{-- <span class="intro-text-small">Hand-crafted by <a href="http://gettemplates.co" target="_blank">GetTemplates.co</a></span> --}}
                         <h1 class="cursive-font">All in good taste!</h1>
                     </div>
 
@@ -63,7 +63,7 @@
     <div class="gtco-container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
-                <h2 class="cursive-font">Our Services</h2>
+                <h2 class="cursive-font">Our Products</h2>
                 <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
             </div>
         </div>
@@ -71,9 +71,9 @@
             <div class="col-md-4 col-sm-6">
                 <div class="feature-center animate-box" data-animate-effect="fadeIn">
                     <span class="icon">
-                        <i class="ti-face-smile"></i>
+                        <i class="fal fa-5x fa-glass-whiskey-rocks" contenteditable="/f79f"></i>
                     </span>
-                    <h3>Happy People</h3>
+                    <h3>Whiskys</h3>
                     <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     <span class="icon">
                         <i class="ti-thought"></i>
                     </span>
-                    <h3>Creative Culinary</h3>
+                    <h3>Beer</h3>
                     <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
                 </div>
             </div>
@@ -91,11 +91,37 @@
                     <span class="icon">
                         <i class="ti-truck"></i>
                     </span>
-                    <h3>Food Delivery</h3>
+                    <h3>Gin</h3>
                     <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
                 </div>
             </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-center animate-box" data-animate-effect="fadeIn">
+                    <span class="icon">
+                        <i class="ti-face-smile"></i>
+                    </span>
+                    <h3>Wine</h3>
+                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-center animate-box" data-animate-effect="fadeIn">
+                    <span class="icon">
+                        <i class="ti-thought"></i>
+                    </span>
+                    <h3>Vodka</h3>
+                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-center animate-box" data-animate-effect="fadeIn">
+                    <span class="icon">
+                        <i class="ti-truck"></i>
+                    </span>
+                    <h3>Brandy</h3>
+                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
 
+            </div>
 
         </div>
     </div>

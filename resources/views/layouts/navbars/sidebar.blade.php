@@ -106,6 +106,12 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('newsletter.form') }}">
+                        <i class="fa fa-map-marker text-primary"></i> {{ __('Send Newsletter') }}
+                    </a>
+                </li>
+
 
 
 
