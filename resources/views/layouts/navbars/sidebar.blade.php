@@ -6,7 +6,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="/">
-             <img src="/assets/img/busy-logo.png" class="navbar-brand-img" alt="...">
+             <img src="/images/KAISER LOGO-04.png" class="navbar-brand-img" alt="...">
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -108,7 +108,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('newsletter.form') }}">
-                        <i class="fa fa-map-marker text-primary"></i> {{ __('Send Newsletter') }}
+                        <i class="fa fa-envelope text-primary"></i> {{ __('Send Newsletter') }}
                     </a>
                 </li>
 

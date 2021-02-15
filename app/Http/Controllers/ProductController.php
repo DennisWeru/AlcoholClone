@@ -25,6 +25,7 @@ class ProductController extends Controller
 
         $category = Category::Create([
             'name' => $request->name,
+            'description' => $request->description,
             'uniqid' => uniqid(),
         ]);
         Log::info($category->name." Added Successfully");

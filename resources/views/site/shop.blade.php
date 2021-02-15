@@ -14,7 +14,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <a href="#" class="fh5co-card-item">
                     <figure>
-                        <div class="overlay add-cart" id="{!! $value->uniqid !!}"><i class="fa fa-plus "></i></div>
+                        <div class="overlay view_details" id="{!! $value->uniqid !!}"><i class="fa fa-plus "></i></div>
                         <img src="{!! $value->main_photo !!}" alt="Image" class="img-responsive">
                     </figure>
                     <div class="fh5co-text">

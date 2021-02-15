@@ -27,7 +27,8 @@ Route::get('/finish/order/{uniqid}', [SiteController::class, 'finish_order'])->n
 Route::get('/contact/us/', [SiteController::class, 'contact_us'])->name('contact.us');
 Route::post('/contact/us/post', [SiteController::class, 'post_contact_us'])->name('post.contact.us');
 Route::get('/subscribe/newsletter', [SiteController::class, 'subscribe_newsletter'])->name('subscribe.newsletter');
-
+Route::get('/product/details', [SiteController::class, 'product_details'])->name('product.details');
+Route::get('/remove/product', [SiteController::class, 'remove_product'])->name('remove.product');
 
 Auth::routes();
 
@@ -44,6 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/all/products', [ProductController::class, 'all_products'])->name('all.products');
     Route::get('/add/portfolio', [SiteController::class, 'add_portfolio'])->name('add.portfolio');
     Route::get('/send/newsletter', [SiteController::class, 'send_newsletter'])->name('newsletter.form');
+
     Route::get('/edit/product/{uniqid}', [ProductController::class, 'edit_product'])->name('edit.product');
     Route::get('/delete/product/{uniqid}', [ProductController::class, 'delete_product'])->name('delete.product');
     Route::get('/view/details/{uniqid}', [SiteController::class, 'view_details'])->name('view.details');

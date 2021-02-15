@@ -46,8 +46,8 @@ class NewsletterSent extends Notification
         return (new MailMessage)
                     ->greeting('Hello '.$this->subscriber->name)
                     ->line('A newsletter from Kaiser Alcohol')
-                    ->line(new HtmlString('Title:<h1>'.$this->newsletter->title.'</h1>'))
-                    ->line(new HtmlString('<b>Message:</b><p>'.$this->newsletter->message.'</p>
+                    ->line(new HtmlString('<h1>'.$this->newsletter->title.'</h1>'))
+                    ->line(new HtmlString('<p>'.$this->newsletter->message.'</p>
                     '))
 
                     ->line('Thank you for using our application!');

@@ -14,8 +14,8 @@
             <div class="gtco-container text-center">
                 <div class="display-t">
                     <div class="display-tc">
-                        <h1>&ldquo; Their high quality of service makes me back over and over again!&rdquo;</h1>
-                        <p>&mdash; John Doe, CEO of XYZ Co.</p>
+                        <h3 style="color:white">&ldquo; Kaiser is a master of what it does. It was established in 2018 and has been going strong ever since!&rdquo;</h3>
+
                     </div>
                 </div>
             </div>

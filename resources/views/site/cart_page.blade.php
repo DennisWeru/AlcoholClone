@@ -20,16 +20,18 @@
                     <th scope="col">Product Name</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
 
                     @foreach($all_products as $product => $value)
-                  <tr>
+                  <tr id="product_div_{!! $value->uniqid !!}">
                     <th scope="row">{{ @++$i }}</th>
                     <td>{!! $value->name !!}</td>
                     <td>{!! $value->quantity !!}</td>
                     <td>Ksh.{!! $value->price !!}</td>
+                    <td><a class="btn btn-danger remove_product" id="{!! $value->uniqid !!}">Remove Product</a></td>
                   </tr>
 
                   @endforeach
@@ -37,7 +39,7 @@
                       <td></td>
                       <td></td>
                       <td><h2><b>SubTotal</b></h2></td>
-                      <td><h2>Ksh.{!! $total_price !!}</h2></td>
+                      <td><h2 class="total_price">Ksh.{!! $total_price !!}</h2></td>
                   </tr>
                   <tr>
                     <td></td>

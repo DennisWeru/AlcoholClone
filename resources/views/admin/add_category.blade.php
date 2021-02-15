@@ -26,14 +26,11 @@
                                 </div>
 
 
-                                <div class="form-group{{ $errors->has('application_form') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label">{{ __('Icon') }}<span style="color:red">*</span></label>
-                                <input type="file" name="icon" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Name" accept=".png,.jpg,.gif" value="" required autofocus>
-                                </div>
+
                                 <div class="form-group{{ $errors->has('content') ? ' has-danger' : '' }}">
                                     <label class="form-control-label">{{ __('Description') }}</label>
 
-                                    <textarea name="description" class="editor_text_area form-control form-control-alternative{{ $errors->has('content') ? ' is-invalid' : '' }}" placeholder="{{ __('Product Specification and Description') }}" value="{{ old('content') }}" rows="4">{!! $product->description !!}</textarea>
+                                    <textarea name="description" class="editor_text_area form-control form-control-alternative{{ $errors->has('content') ? ' is-invalid' : '' }}" placeholder="{{ __('Product Specification and Description') }}" value="{{ old('content') }}" rows="4"></textarea>
 
                                     @if ($errors->has('content'))
                                         <span class="invalid-feedback" role="alert">

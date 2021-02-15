@@ -96,32 +96,41 @@ class SiteController extends Controller
     public function cart_page(Request $request)
     {
         if ($request->session()->get('cart_uniqid') == null) {
-            Log::info("There are no Products in your Cart");
-            $request->session()->flash("error","There are no Products in your Cart");
+            Log::info("Sorry, There are no products in your cart");
+            $request->session()->flash("error","Sorry, There are no products in your cart");
             return redirect()->back();
 
         }
+
         else
         {
             $cart = Cart::where('uniqid','=',$request->session()->get('cart_uniqid'))->get()->first();
-
-            $product_array = explode(',',$cart->product_array);
-            $all_products = [];
-            $total_price = 0;
-            for($i=0;$i<sizeof($product_array);$i++)
+            if($cart->product_array == null)
             {
-                $product = Product::find($product_array[$i]);
-                if(!in_array($product,$all_products))
-                {
-                    array_push($all_products,$product);
-                }
-
-                $total_price = $total_price + (int) $product->price;
-
+                Log::info("Sorry, There are no products in your cart");
+                $request->session()->flash("error","Sorry, There are no products in your cart");
+                return redirect()->back();
             }
-            $cart_uniqid = $request->session()->get('cart_uniqid');
-           $locations = Location::get();
-            return view('site.cart_page',compact('all_products','total_price','locations','cart_uniqid'));
+            else {
+                $product_array = explode(',',$cart->product_array);
+                $all_products = [];
+                $total_price = 0;
+                for($i=0;$i<sizeof($product_array);$i++)
+                {
+                    $product = Product::find($product_array[$i]);
+                    if(!in_array($product,$all_products))
+                    {
+                        array_push($all_products,$product);
+                    }
+
+                    $total_price = $total_price + (int) $product->price;
+
+                }
+                $cart_uniqid = $request->session()->get('cart_uniqid');
+               $locations = Location::get();
+                return view('site.cart_page',compact('all_products','total_price','locations','cart_uniqid'));
+            }
+
         }
     }
 
@@ -151,6 +160,10 @@ class SiteController extends Controller
             $cart = Cart::where('uniqid','=',$cart_uniqid)->get()->first();
             // dd($cart);
             $cart_products = explode(',',$cart->product_array);
+            if($cart_products[0] == '')
+            {
+               $cart_products =  array_diff($cart_products, array($cart_products[0]));
+            }
             // return $uniqid;
             if(!in_array($product->id,$cart_products))
             {
@@ -330,10 +343,10 @@ class SiteController extends Controller
             'email' => $_GET['email'],
             'uniqid' => uniqid()
         ]);
-        return 'done';
+        return 'Subscription Successful';
         }
         else {
-            return 'already subscribed';
+            return 'Already Subscribed';
         }
 
 
@@ -354,6 +367,8 @@ class SiteController extends Controller
 
 
         ]);
+
+        // dd($request->message);
         $newsletter = Newsletter::create([
             'title' => $request->title,
             'message' => $request->message,
@@ -372,4 +387,33 @@ class SiteController extends Controller
 
     }
 
+    public function product_details(Request $request)
+    {
+        $product = Product::where('uniqid','=',$_GET['uniqid'])->get()->first();
+        return $product->name.'#'.$product->description.'#'.$product->price.'#'.$product->main_photo.'#'.$product->uniqid.'#'.$product->quantity;
+    }
+
+    public function remove_product(Request $request)
+    {
+        $product = Product::where('uniqid','=',$_GET['uniqid'])->get()->first();
+        $cart = Cart::where('uniqid','=',$request->session()->get('cart_uniqid'))->get()->first();
+        $cart_array = explode(',',$cart->product_array);
+        $arr = implode(',',array_diff($cart_array, array($product->id)));
+
+        Cart::where('uniqid','=',$request->session()->get('cart_uniqid'))->update([
+            'product_array' => $arr
+        ]);
+
+        $total_price = 0;
+        for($i=0;$i<sizeof(array_diff($cart_array, array($product->id)));$i++)
+        {
+            $product = Product::find($arr[$i]);
+
+            $total_price = $total_price + (int) $product->price;
+
+        }
+
+        return sizeof(array_diff($cart_array, array($product->id))).'#'.$total_price;
+
+    }
 }

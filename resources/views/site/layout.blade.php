@@ -70,11 +70,11 @@
     padding: 17px
 }
 
-.product_name {
+/* .product_name {
     font-size: 20px;
     font-weight: 400;
     margin-top: 0px
-}
+} */
 
 .badge {
     display: inline-block;
@@ -390,7 +390,11 @@
 
 			<div class="row">
 				<div class="col-sm-4 col-xs-12">
-					<div id="gtco-logo"><a href="/">Kaiser Alcohol<em>.</em></a></div>
+					<div id="gtco-logo">
+                        <a href="/">
+                        <img src="/images/Kaiser_white.png" height="70px">
+                    </a>
+                    </div>
 				</div>
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
@@ -403,7 +407,7 @@
 
                                 @endphp
 
-                                @foreach($categories as $category => $value)
+                                @foreach($categories as $category => $value
                                 <li><a href="{{ route('single.category',[$value->uniqid]) }}">{!! $value->name !!}</a></li>
                                 @endforeach
 
@@ -415,8 +419,9 @@
 
 								@php
 								use Illuminate\Http\Request;
-								@endphp
-								<a id="cart-btn"  href="{!! route('cart.page') !!}" class="btn-xs" style="z-index:1000; height:30px; width:60px; position: relative;box-shadow:0 0 20px rgb(218,165,32);" title="View Shopping Cart" cursor="pointer"><i class="fa fa-shopping-cart fa-2x" style="align-content: center; top:20"></i><span class="cart_length" style="font-weight:bolder;"></span></a>
+                                @endphp
+                                {{--  --}}
+								<a id="cart-btn"  href="{!! route('cart.page') !!}" class="btn-xs" style="z-index:1000; height:30px; width:60px; position: relative;" title="View Shopping Cart" cursor="pointer"><i class="fa fa-shopping-cart fa-2x" style="align-content: center; top:20"></i><span class="cart_length" style="font-weight:bolder;"></span></a>
 
 
 						</li>
@@ -474,36 +479,123 @@
 					<div class="gtco-widget">
 						<h3>Get In Touch</h3>
 						<ul class="gtco-quick-contact">
-							<li><a href="#"><i class="icon-phone"></i> +1 234 567 890</a></li>
-							<li><a href="#"><i class="icon-mail2"></i> info@GetTemplates.co</a></li>
-							<li><a href="#"><i class="icon-chat"></i> Live Chat</a></li>
+							<li><a href="#"><i class="icon-phone"></i>+254 758 068231  </a></li>
+							<li><a href="mailto:sales.kaiseralcohol@gmail.com"><i class="icon-mail2"></i> sales.kaiseralcohol@gmail.com</a></li>
+							{{-- <li><a href="#"><i class="icon-chat"></i> Live Chat</a></li> --}}
 						</ul>
 					</div>
 					<div class="gtco-widget">
 						<h3>Get Social</h3>
 						<ul class="gtco-social-icons">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
+							{{-- <li><a href=""><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li> --}}
+							<li><a href="https://www.instagram.com/kaiser_alcohol/"><i class="icon-instagram"></i></a></li>
+							{{-- <li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li><a href="#"><i class="icon-dribbble"></i></a></li> --}}
 						</ul>
 					</div>
 				</div>
 
 				<div class="col-md-12 text-center copyright">
-					<p><small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
-						<small class="block">Designed by <a href="http://gettemplates.co/" target="_blank">GetTemplates.co</a> Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a></small></p>
+					<p><small class="block">&copy; {!! date('Y') !!} . All Rights Reserved.</small>
+						<small class="block">Developed By <a href="http://millennialstech.co.ke/" target="_blank">Millennials Technologies</a> </small></p>
 				</div>
 
 			</div>
 
 
 
-		</div>
+        </div>
+        <div class="modal details_modal" tabindex="-1" style="overflow-y: auto" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="close close_btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-4 order-lg-2">
+                        <div class="image_selected"><img src="" class="product_image" height="150px" width="125px"></div>
+                    </div>
+                    <div class="col-lg-6 order-3">
+                        <div class="product_description">
+
+                            <div class="product_name"></div>
+
+                            <div> <p class="product_price"></p> </div>
+
+                            <hr class="singleline">
+
+                            <div>
+
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col-xs-6" style="margin-left: 15px;"> <span class="product_options">Description</span><br><p class="description-class"></p>  </div>
+
+                                </div>
+                            </div>
+                            <hr class="singleline">
+                            <div class="order_info d-flex flex-row">
+                                <form action="#">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                     <a class="btn btn-danger add-cart" id=""><i class="fa fa-shopping-basket"></i>Order Now</a>
+                  <button type="button" class="btn btn-secondary close_btn" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="modal success_message" tabindex="-1" style="overflow-y: auto" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="close close_btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <img src="/images/pngegg.png" height="100px" width="80px">
+
+                </div>
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-secondary close_btn" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal failed_message" tabindex="-1" style="overflow-y: auto" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="close close_btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <center><img src="/images/Red-Cross-Mark-Download-PNG.png" height="100px" width="80px"><br/>Already Subscribed</center>
+                    {{-- Red-Cross-Mark-Download-PNG.png --}}
+                </div>
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-secondary close_btn" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
 	</footer>
 	<!-- </div> -->
 
 	</div>
+
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
@@ -537,6 +629,7 @@
     <script src="/assets/js/main.js"></script>
     <script>
         $(document).ready(function(){
+            // $('.failed_message').fadeIn();
             $('.subscribe-btn').click(function(e){
                 e.preventDefault();
                 var email_field = $('.email_field').val();
@@ -546,16 +639,19 @@
                     type: 'GET',
                     data: { email:email_field},
                     success:function(response){
-                        alert(response);
-                        if(response == 'done')
+
+                        if(response == 'Subscription Successful')
                         {
+
                             $('success_message').show();
                             $('failed_message').hide();
                         }
                         else
                         {
-                            $('success_message').hide();
+                            alert('hhh')
                             $('failed_message').fadeIn();
+                            $('success_message').hide();
+
                         }
                         // $('.cart_length').text(response);
                     }
@@ -566,6 +662,7 @@
             $('.add-cart').click(function(e){
                 e.preventDefault();
                 var uniqid = $(this).attr('id');
+                // alert(uniqid);
                 $.ajax({
                     url: '/order/drink/',
                     type: 'GET',
@@ -573,10 +670,64 @@
                     success:function(response){
                         // alert(response);
                         $('.cart_length').text(response);
+                        $('.btn-xs').css('box-shadow','0 0 20px rgb(218,165,32)');
+                        $('.close_btn').click();
                     }
 
     });
 
+               });
+               $('.view_details').click(function(){
+                   var uniqid = $(this).attr('id');
+
+                   $.ajax({
+                    url: '/product/details',
+                    type: 'GET',
+                    data: { uniqid:uniqid},
+                    success:function(response){
+                     var split = response.split('#');
+                        // alert(split[2]);
+                        $('.product_name').text(split[0]+' '+split[5]);
+                        $('.modal-title').text(split[0]);
+                        $('.product_price').text('Ksh '+split[2]);
+                        $('.description-class').html(split[1]);
+                        $('.add-cart').attr('id',split[4]);
+                        $('.product_image').attr('src',split[3]);
+                        //
+                    }
+
+    });
+
+
+                $('.details_modal').fadeIn();
+               });
+
+               $('.remove_product').click(function(){
+                var uniqid = $(this).attr('id');
+                $.ajax({
+                    url: '/remove/product',
+                    type: 'GET',
+                    data: { uniqid:uniqid},
+                    success:function(response){
+                        // alert(response);
+                        var split = response.split('#');
+                        if(split[0] == '0')
+                        {
+                            location.reload();
+                        }
+                        else
+                        {
+                            $('#product_div_'+uniqid).fadeOut();
+                            $('.total_price').text('Ksh.'+split[1]);
+                        }
+
+                    }
+
+    });
+
+               });
+               $('.close_btn').click(function(){
+                $('.modal').fadeOut();
                });
                $('.checkout-btn').click(function(){
                 $('.cart_table').hide();

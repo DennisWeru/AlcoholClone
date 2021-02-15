@@ -22,7 +22,7 @@
                                     @csrf
                             <div class="form-group{{ $errors->has('application_form') ? ' has-danger' : '' }}">
                                     <label class="form-control-label">{{ __('Title') }}<span style="color:red">*</span></label>
-                                <input type="text" name="title" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Name" value="" required autofocus>
+                                <input type="text" name="title" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Newsletter Title" value="" required autofocus>
                                 </div>
 {{--
                                 <div class="form-group{{ $errors->has('application_form') ? ' has-danger' : '' }}">
