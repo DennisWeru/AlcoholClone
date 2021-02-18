@@ -15,7 +15,7 @@
 
 
                     <div class="card-body">
-                            <b>Phone Number: </b>{!! $cart->contact !!}<br/><br/>
+                            <b>Phone Number: </b><a href="tel:{!! $cart->contact !!}">{!! $cart->contact !!}</a><br/><br/>
                         <a href="mailto:{!! $cart->user_email !!}" class="btn btn-primary">Send Email to Customer</a><br/><br/>
                         <div class="grid-sizer"></div>
                         <h2>All Items</h2>

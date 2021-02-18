@@ -724,7 +724,7 @@ figure {
     left: 0;
     top: .05em;
     font-family: 'icomoon';
-    speak: none;
+    speak-as: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -1319,7 +1319,7 @@ form label {
     position: absolute;
     right: 0px;
     font-family: 'icomoon';
-    speak: none;
+    speak-as: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -2052,12 +2052,12 @@ form label {
 
 .fh5co-card-item .fh5co-text:before {
     position: absolute;
-    top: -40px;
+    top: 0px;
     right: 0;
     left: 0;
     width: 103%;
     margin-left: -4px;
-    height: 50px;
+    height: 20px;
     z-index: -1;
     content: "";
     background: #fff;

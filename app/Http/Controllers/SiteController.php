@@ -13,6 +13,7 @@ use \App\Admin;
 use \App\Newsletter;
 use \App\Subscriber;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use App\Notifications\OrderReceivedSuccessfully;
@@ -416,4 +417,18 @@ class SiteController extends Controller
         return sizeof(array_diff($cart_array, array($product->id))).'#'.$total_price;
 
     }
+
+    public function set_cookie(Request $request){
+        $minutes = 60;
+        $response =  new Response('Hello World');
+        // return $response;
+
+        // return $value;
+     }
+
+     public function get_cookie(Request $request)
+     {
+        return $request->cookie();
+        //
+     }
 }

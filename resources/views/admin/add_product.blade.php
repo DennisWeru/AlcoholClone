@@ -62,6 +62,8 @@
                                     <option >250ml</option>
                                     <option >500ml</option>
                                     <option >750ml</option>
+                                    <option >1 Litre</option>
+                                    <option >5 Litres</option>
 
                                 </select>
                                 </div>

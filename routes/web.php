@@ -29,6 +29,8 @@ Route::post('/contact/us/post', [SiteController::class, 'post_contact_us'])->nam
 Route::get('/subscribe/newsletter', [SiteController::class, 'subscribe_newsletter'])->name('subscribe.newsletter');
 Route::get('/product/details', [SiteController::class, 'product_details'])->name('product.details');
 Route::get('/remove/product', [SiteController::class, 'remove_product'])->name('remove.product');
+Route::get('/set/cookie', [SiteController::class, 'set_cookie'])->name('set.cookie');
+Route::get('/get/cookie', [SiteController::class, 'get_cookie'])->name('get.cookie');
 
 Auth::routes();
 

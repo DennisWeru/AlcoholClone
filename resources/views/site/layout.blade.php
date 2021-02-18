@@ -479,7 +479,7 @@
 					<div class="gtco-widget">
 						<h3>Get In Touch</h3>
 						<ul class="gtco-quick-contact">
-							<li><a href="#"><i class="icon-phone"></i>+254 758 068231  </a></li>
+							<li><a href="tel:+254758068231"><i class="icon-phone"></i>+254 758 068231  </a></li>
 							<li><a href="mailto:sales.kaiseralcohol@gmail.com"><i class="icon-mail2"></i> sales.kaiseralcohol@gmail.com</a></li>
 							{{-- <li><a href="#"><i class="icon-chat"></i> Live Chat</a></li> --}}
 						</ul>
@@ -516,36 +516,28 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <div class="col-lg-4 order-lg-2">
-                        <div class="image_selected"><img src="" class="product_image" height="150px" width="125px"></div>
-                    </div>
-                    <div class="col-lg-6 order-3">
-                        <div class="product_description">
+                    <div class="col-lg-4 col-md-4 col-sm-6">
 
-                            <div class="product_name"></div>
 
-                            <div> <p class="product_price"></p> </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="" class="card-img-top product_image" alt="...">
 
-                            <hr class="singleline">
+                            <div class="card-body">
 
-                            <div>
+                              <h5 class="card-title product_name"></h5>
+                           <p class="card-text description-class"></p>
+                              <hr/>
+                              <p class="card-text product_price"></p>
+                              <a class="btn btn-danger add-cart" id=""><i class="fa fa-shopping-basket"></i>Order Now</a>
 
-                                <div class="row" style="margin-top: 15px;">
-                                    <div class="col-xs-6" style="margin-left: 15px;"> <span class="product_options">Description</span><br><p class="description-class"></p>  </div>
-
-                                </div>
                             </div>
-                            <hr class="singleline">
-                            <div class="order_info d-flex flex-row">
-                                <form action="#">
-                            </div>
-
-                        </div>
-                    </div>
+                       </center>
+                          </div>
+                      </div>
                 </div>
                 <div class="modal-footer">
-                     <a class="btn btn-danger add-cart" id=""><i class="fa fa-shopping-basket"></i>Order Now</a>
-                  <button type="button" class="btn btn-secondary close_btn" data-dismiss="modal">Close</button>
+{{--
+                  <button type="button" class="btn btn-secondary close_btn" data-dismiss="modal">Close</button> --}}
                 </div>
               </div>
             </div>
@@ -567,6 +559,27 @@
 
                   <button type="button" class="btn btn-secondary close_btn" data-dismiss="modal">Close</button>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal over_age" tabindex="-1" style="overflow-y: auto" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                {{-- <div class="modal-header"> --}}
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="close close_btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                {{-- </div> --}}
+                <div class="modal-body">
+                    <center>
+                    Are You Above 18 Years?<br/>
+                    <a class="btn btn-primary accept">Accept</a>
+                    <a class="btn btn-danger decline">Decline</a>
+                </center>
+                </div>
+
               </div>
             </div>
           </div>
@@ -639,7 +652,7 @@
                     type: 'GET',
                     data: { email:email_field},
                     success:function(response){
-
+                        alert(response)
                         if(response == 'Subscription Successful')
                         {
 
@@ -648,7 +661,7 @@
                         }
                         else
                         {
-                            alert('hhh')
+
                             $('failed_message').fadeIn();
                             $('success_message').hide();
 
@@ -733,6 +746,33 @@
                 $('.cart_table').hide();
                 $('.user_checkout').fadeIn();
                         });
+               var cookie = localStorage.getItem('cookie');
+
+            //    alert(cookie);
+               if(cookie !== null)
+               {
+                // localStorage.setItem('cookie', 'not_Set');
+                if(cookie !== 'This Person is Over 18' && cookie !== 'This Person is Under 18')
+                {
+                    $('.over_age').fadeIn();
+                }
+
+                if(cookie == 'This Person is Under 18')
+                {
+                    window.location.href = "https://www.google.com/search?q=non+alcoholic+drinks+under+18&oq=drinks+under+18+&aqs=chrome.4.69i57j0i22i30l6j0i390.14720j0j4&sourceid=chrome&ie=UTF-8";
+                }
+                $('.accept').click(function(){
+                    localStorage.setItem('cookie', 'This Person is Over 18');
+                    $('.close_btn').click();
+                });
+                $('.decline').click(function(){
+                    localStorage.setItem('cookie', 'This Person is Under 18');
+                    window.location.href = "https://www.google.com/search?q=non+alcoholic+drinks+under+18&oq=drinks+under+18+&aqs=chrome.4.69i57j0i22i30l6j0i390.14720j0j4&sourceid=chrome&ie=UTF-8";
+                    $('.close_btn').click();
+                });
+               }
+
+
             setTimeout(function () {
                 toastr.options = {
                     closeButton: true,
