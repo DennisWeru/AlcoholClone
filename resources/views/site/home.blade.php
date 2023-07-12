@@ -143,16 +143,7 @@
                 </a>
             </div>
 
-
-
-
             @endforeach
-
-
-
-
-
-
 
 
 
@@ -165,72 +156,25 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
                 <h2 class="cursive-font">Our Products</h2>
-                <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                <p>Experience exceptional libations at our alcohol retail shop. Discover a curated collection of spirits, wines, and craft beers that cater to every palate. Elevate your celebrations with our handpicked selection.</p>
             </div>
         </div>
         <div class="row">
+            @foreach($category as $single as $values)
             <div class="col-md-4 col-sm-6">
                 <div class="feature-center animate-box" data-animate-effect="fadeIn">
                     <span class="icon">
                         <i class="fa fa-beer"></i>
                     </span>
-                    <h3>Beer</h3>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                    {{-- 'name', 'uniqid','status','description' --}}
+                    <h3>{{ $values->name }}</h3>
+                    <p>{!! $values->description !!}</p>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="feature-center animate-box" data-animate-effect="fadeIn">
-                    <span class="icon">
-                        {{-- <i class="fas fa-glass-whiskey"></i> --}}
-                        <i class="fa fa-glass-whiskey" contenteditable="/f79f"></i>
-                    </span>
-                    <h3>Whiskey</h3>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                </div>
-            </div>
+            @endforeach
+     
 
-            <div class="col-md-4 col-sm-6">
-                <div class="feature-center animate-box" data-animate-effect="fadeIn">
-                    <span class="icon">
-                        {{-- <i class="fas fa-wine-bottle"></i> --}}
-                        <i class="fa fa-glass-martini-alt"></i>
-
-                    </span>
-                    <h3>Gin</h3>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="feature-center animate-box" data-animate-effect="fadeIn">
-                    <span class="icon">
-                        <i class="fas fa-glass-cheers"></i>
-                    </span>
-                    <h3>Wine</h3>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="feature-center animate-box" data-animate-effect="fadeIn">
-                    <span class="icon">
-                        <i class="fas fa-wine-bottle"></i>
-                    </span>
-                    <h3>Vodka</h3>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="feature-center animate-box" data-animate-effect="fadeIn">
-                    <span class="icon">
-                        <i class="fa fa-glass-whiskey"></i>
-                        {{-- <i class="fas fa-glass-whiskey-rocks"></i>/ --}}
-                        {{-- <i class="ti-truck"></i> --}}
-                    </span>
-                    <h3>Brandy</h3>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-
-            </div>
-
-        </div>
+         
     </div>
 </div>
 

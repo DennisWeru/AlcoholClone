@@ -26,7 +26,8 @@ class SiteController extends Controller
     public function welcome(Request $request)
     {
         $popular_drinks = Product::orderBy('tally', 'desc')->limit(3)->get();
-        return view('site.home',compact('popular_drinks'));
+        $category = Category::get();
+        return view('site.home',compact('popular_drinks','category'));
     }
 
     public function add_portfolio(Request $request)
