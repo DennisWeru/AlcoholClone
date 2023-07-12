@@ -160,7 +160,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach($category as $single as $values)
+            @foreach($category as $single => $values)
             <div class="col-md-4 col-sm-6">
                 <div class="feature-center animate-box" data-animate-effect="fadeIn">
                     <span class="icon">
