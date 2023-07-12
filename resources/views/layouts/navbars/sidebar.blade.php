@@ -6,7 +6,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="/">
-             <img src="/images/KAISER LOGO-04.png" class="navbar-brand-img" alt="...">
+             <h2>Terah Wines</h2>
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
