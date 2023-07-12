@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
                 <h2 class="cursive-font primary-color">All Products</h2>
-                <p>Kaiser Alcohol prides itself</p>
+                <p>Terah Wines prides itself</p>
             </div>
         </div>
         <div class="row">

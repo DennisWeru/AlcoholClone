@@ -426,7 +426,8 @@
 				<div class="col-sm-4 col-xs-12">
 					<div id="gtco-logo">
                         <a href="/">
-                        <img src="/images/Kaiser_white.png" height="70px">
+                        {{-- <img src="/images/Kaiser_white.png" height="70px"> --}}
+                        <h2>Terah Wines</h2>
                     </a>
                     </div>
 				</div>
