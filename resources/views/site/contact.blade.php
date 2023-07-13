@@ -59,7 +59,7 @@
                 <div class="gtco-contact-info">
                     <h3>Contact Information</h3>
                     <ul>
-                        <li class="address">Biashara St,  <br> Kiambu</li>
+                        <li class="address">Bypass ,  <br> Ruaka</li>
                         <li class="phone"><a href="tel:+254 705 20 6185">+254 705 20 6185</a></li>
                         <li class="email"><a href="mailto:salesdrinkske@gmail.com ">salesdrinkske@gmail.com </a></li>
 
