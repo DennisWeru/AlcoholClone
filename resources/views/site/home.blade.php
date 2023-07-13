@@ -161,6 +161,7 @@
         </div>
         <div class="row">
             @foreach($category as $single => $values)
+            @if($loop->index !== 6)
             <div class="col-md-4 col-sm-6">
                 <div class="feature-center animate-box" data-animate-effect="fadeIn">
                     <span class="icon">
@@ -169,9 +170,10 @@
                     {{-- 'name', 'uniqid','status','description' --}}
                     <h3>{{ $values->name }}</h3>
                     <p>{!! $values->description !!}</p>
-                    <p>{!! $loop->index !!}</p>
+                    <p></p>
                 </div>
             </div>
+            @endif
             @endforeach
      
 
