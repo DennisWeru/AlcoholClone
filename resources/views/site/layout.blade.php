@@ -519,16 +519,16 @@
 							{{-- <li><a href="#"><i class="icon-chat"></i> Live Chat</a></li> --}}
 						</ul>
 					</div>
-					<div class="gtco-widget">
+					{{-- <div class="gtco-widget">
 						<h3>Get Social</h3>
 						<ul class="gtco-social-icons">
-							{{-- <li><a href=""><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li> --}}
-							{{-- <li><a href="https://www.instagram.com/kaiser_alcohol/"><i class="icon-instagram"></i></a></li> --}}
-							{{-- <li><a href="#"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li> --}}
+							<li><a href=""><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="https://www.instagram.com/kaiser_alcohol/"><i class="icon-instagram"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li><a href="#"><i class="icon-dribbble"></i></a></li>
 						</ul>
-					</div>
+					</div> --}}
 				</div>
 
 				<div class="col-md-12 text-center copyright">
