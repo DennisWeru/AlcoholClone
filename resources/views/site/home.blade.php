@@ -169,7 +169,7 @@
                     {{-- 'name', 'uniqid','status','description' --}}
                     <h3>{{ $values->name }}</h3>
                     <p>{!! $values->description !!}</p>
-                    <p>{!! $i !!}</p>
+                    {{-- <p>{!! $i !!}</p> --}}
                 </div>
             </div>
             @endforeach
