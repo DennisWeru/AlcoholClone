@@ -533,7 +533,7 @@
 
 				<div class="col-md-12 text-center copyright">
 					<p><small class="block">&copy; {!! date('Y') !!} . All Rights Reserved.</small>
-						<small class="block">Developed By <a href="http://millennialstech.co.ke/" target="_blank">Millennials Technologies</a> </small></p>
+						<small class="block">Developed By <a href="https://keshonect.co.ke/" target="_blank">Neutrino Technologies</a> </small></p>
 				</div>
 
 			</div>
