@@ -524,7 +524,7 @@
 						<ul class="gtco-social-icons">
 							{{-- <li><a href=""><i class="icon-twitter"></i></a></li>
 							<li><a href="#"><i class="icon-facebook"></i></a></li> --}}
-							<li><a href="https://www.instagram.com/kaiser_alcohol/"><i class="icon-instagram"></i></a></li>
+							{{-- <li><a href="https://www.instagram.com/kaiser_alcohol/"><i class="icon-instagram"></i></a></li> --}}
 							{{-- <li><a href="#"><i class="icon-linkedin"></i></a></li>
 							<li><a href="#"><i class="icon-dribbble"></i></a></li> --}}
 						</ul>
