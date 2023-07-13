@@ -60,8 +60,8 @@
                     <h3>Contact Information</h3>
                     <ul>
                         <li class="address">Biashara St,  <br> Kiambu</li>
-                        <li class="phone"><a href="tel:+254 758 068231">+254 758 068231</a></li>
-                        <li class="email"><a href="mailto:sales.kaiseralcohol@gmail.com">sales.kaiseralcohol@gmail.com</a></li>
+                        <li class="phone"><a href="tel:+254 705 20 6185">+254 705 20 6185</a></li>
+                        <li class="email"><a href="mailto:salesdrinkske@gmail.com ">salesdrinkske@gmail.com </a></li>
 
                     </ul>
                 </div>
