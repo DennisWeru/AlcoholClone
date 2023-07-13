@@ -514,8 +514,8 @@
 					<div class="gtco-widget">
 						<h3>Get In Touch</h3>
 						<ul class="gtco-quick-contact">
-							<li><a href="tel:+254758068231"><i class="icon-phone"></i>+254 758 068231  </a></li>
-							<li><a href="mailto:sales.kaiseralcohol@gmail.com"><i class="icon-mail2"></i> sales.kaiseralcohol@gmail.com</a></li>
+							<li><a href="tel:+254758068231"><i class="icon-phone"></i>+254 705 20 6185  </a></li>
+							<li><a href="mailto:sales.kaiseralcohol@gmail.com"><i class="icon-mail2"></i> salesdrinkske@gmail.com </a></li>
 							{{-- <li><a href="#"><i class="icon-chat"></i> Live Chat</a></li> --}}
 						</ul>
 					</div>
