@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/add/portfolio', [SiteController::class, 'add_portfolio'])->name('add.portfolio');
     Route::get('/send/newsletter', [SiteController::class, 'send_newsletter'])->name('newsletter.form');
     Route::get('/add/rider/details', [SiteController::class, 'add_rider_details'])->name('add.rider.details');
-    Route::post('/post/rider/details', [SiteController::class, 'post_ride_details'])->name('post.rider.details');
+    Route::post('/post/rider/details', [SiteController::class, 'post_ride_details'])->name('post.delivery.guy.details');
 
     Route::get('/edit/product/{uniqid}', [ProductController::class, 'edit_product'])->name('edit.product');
     Route::get('/delete/product/{uniqid}', [ProductController::class, 'delete_product'])->name('delete.product');
