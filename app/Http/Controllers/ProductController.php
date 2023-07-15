@@ -18,8 +18,8 @@ class ProductController extends Controller
     //    dd($request->all());
        $orderDetails = Cart::where('uniqid','=',$request->uniqid)->first();
        $deliveryGuy = DeliveryGuy::get();
-       
-       dd($orderDetails);
+
+       dd($deliveryGuy);
 
     }
     public function add_category(Request $request)
