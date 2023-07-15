@@ -15,7 +15,7 @@ class ProductController extends Controller
 {
     public function pass_to_rider(Request $request)
     {
-       dd($request->all());
+    //    dd($request->all());
        $orderDetails = Cart::where('uniqid','=',$request->uniqid)->first();
        dd($orderDetails);
     }
