@@ -44,7 +44,7 @@ class SiteController extends Controller
 
     public function post_ride_details(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $user = User::create([
             'name' => $request->name,  
              'email' => $request->email,
