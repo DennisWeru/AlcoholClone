@@ -69,6 +69,7 @@
 
                             @if($cart->status !== '2')
                             <form action="{{ route('pass.to.rider') }}" method="POST">
+                                @csrf
                             <input type="hidden" value={!! $cart->uniqid  !!} name="uniqid"/>
                             <button type="submit" class="btn btn-primary">Pass order to rider</button><br/><br/>
                         </form>
