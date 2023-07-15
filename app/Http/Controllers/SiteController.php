@@ -48,7 +48,9 @@ class SiteController extends Controller
         $user = User::create([
             'name' => $request->name,  
              'email' => $request->email,
-              'password' => Hash::make('r1D3RP@ssw0rd!') ,    
+              'password' => Hash::make('r1D3RP@ssw0rd!') , 
+              'role'=> 'rider',
+              'uniqid' => uniqid()   
         ]);
         $deliveryGuy = DeliveryGuy::create([
             'name' => $user->name, 
