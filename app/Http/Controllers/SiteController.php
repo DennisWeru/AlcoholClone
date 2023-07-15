@@ -12,6 +12,7 @@ use \App\Cart;
 use \App\Admin;
 use \App\Newsletter;
 use \App\Subscriber;
+use \App\DeliveryGuy;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
@@ -33,6 +34,19 @@ class SiteController extends Controller
     public function add_portfolio(Request $request)
     {
         return view('admin.add_portfolio');
+    }
+
+    public function add_rider_details(Request $request)
+    {
+        return view('admin.add_delivery_guy');
+    }
+
+    public function post_ride_details(Request $request)
+    {
+        dd($request->all());
+        $deliveryGuy = DeliveryGuy::create([
+
+        ]);
     }
 
     public function post_portfolio(Request $request)
