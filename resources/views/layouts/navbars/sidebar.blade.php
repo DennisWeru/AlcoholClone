@@ -89,6 +89,12 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('add.rider.details') }}">
+                        <i class="fa fa-plus text-primary"></i> {{ __('Add Rider Details') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('add.portfolio') }}">
                         <i class="fa fa-user-plus text-primary"></i> {{ __('Add Portfolio') }}
                     </a>
@@ -111,6 +117,8 @@
                         <i class="fa fa-envelope text-primary"></i> {{ __('Send Newsletter') }}
                     </a>
                 </li>
+
+                
 
 
 
