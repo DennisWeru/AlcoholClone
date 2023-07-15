@@ -14,6 +14,19 @@ use App\Notifications\DeliveryRiderOrderNotification;
 
 class ProductController extends Controller
 {
+    public function add_rider_details(Request $request)
+    {
+        return view('admin.add_delivery_guy');
+    }
+
+    public function post_ride_details(Request $request)
+    {
+        dd($request->all());
+        $deliveryGuy = DeliveryGuy::create([
+
+        ]);
+    }
+
     public function pass_to_rider(Request $request)
     {
     //    dd($request->all());
