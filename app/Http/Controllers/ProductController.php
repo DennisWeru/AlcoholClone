@@ -8,9 +8,17 @@ use \App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
+use App\DeliveryGuy;
+use App\Cart;
 
 class ProductController extends Controller
 {
+    public function pass_to_rider(Request $request)
+    {
+       dd($request->all());
+       $orderDetails = Cart::where('uniqid','=',$request->uniqid)->first();
+       dd($orderDetails);
+    }
     public function add_category(Request $request)
     {
         return view('admin.add_category');
