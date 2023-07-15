@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use App\DeliveryGuy;
 use App\Cart;
+use App\Notifications\DeliveryRiderOrderNotification;
 
 class ProductController extends Controller
 {
@@ -18,7 +19,10 @@ class ProductController extends Controller
     //    dd($request->all());
        $orderDetails = Cart::where('uniqid','=',$request->uniqid)->first();
        $deliveryGuy = DeliveryGuy::get();
-
+        foreach($deliveryGuy as $guy)
+        {
+            $guy->notify(new DeliveryRiderOrderNotification($guy, $orderDetails));
+        }
        dd($deliveryGuy);
 
     }
