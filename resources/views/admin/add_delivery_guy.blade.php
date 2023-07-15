@@ -32,11 +32,11 @@
                                 </div>
                             <div class="form-group{{ $errors->has('application_form') ? ' has-danger' : '' }}">
                                     <label class="form-control-label">{{ __('Phone Number') }}<span style="color:red">*</span></label>
-                                <input type="text" name="phone_number" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email"  required autofocus>
+                                <input type="text" name="phone_number" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Mobile Number e.g 0712 345 678"  required autofocus>
                                 </div>
                             <div class="form-group{{ $errors->has('application_form') ? ' has-danger' : '' }}">
                                     <label class="form-control-label">{{ __('Ride Regitsration Number') }}<span style="color:red">*</span></label>
-                                <input type="text" name="ride_reg_no" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email"  required autofocus>
+                                <input type="text" name="ride_reg_no" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Ride Number Plate Number"  required autofocus>
                                 </div>
                               
 

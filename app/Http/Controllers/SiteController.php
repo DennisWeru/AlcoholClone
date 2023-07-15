@@ -10,6 +10,7 @@ use \App\Contact;
 use \App\Location;
 use \App\Cart;
 use \App\Admin;
+use \App\User;
 use \App\Newsletter;
 use \App\Subscriber;
 use \App\DeliveryGuy;
@@ -21,7 +22,7 @@ use App\Notifications\OrderReceivedSuccessfully;
 use App\Notifications\ConfirmOrder;
 use App\Notifications\ContactUs;
 use App\Notifications\NewsletterSent;
-
+use Illuminate\Support\Facades\Hash;
 class SiteController extends Controller
 {
     public function welcome(Request $request)
@@ -44,9 +45,22 @@ class SiteController extends Controller
     public function post_ride_details(Request $request)
     {
         dd($request->all());
-        $deliveryGuy = DeliveryGuy::create([
-
+        $user = User::create([
+            'name' => $request->name,  
+             'email' => $request->email,
+              'password' => Hash::make('r1D3RP@ssw0rd!') ,    
         ]);
+        $deliveryGuy = DeliveryGuy::create([
+            'name' => $user->name, 
+            'email' => $user->email, 
+            'uniqid' => uniqid(),
+            'user_id' => $user->id, 
+            'phone_number' => $request->phone_number,
+             'ride_reg_no' => $request->ride_reg_no,
+        ]);
+        Log::info("Delivery Person Added Successfully");
+        $request->session()->flash("success","Delivery Person Added Successfully");
+        return redirect()->back();
     }
 
     public function post_portfolio(Request $request)
