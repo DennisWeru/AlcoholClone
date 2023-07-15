@@ -13,8 +13,14 @@ class CreateDeliveryGuysTable extends Migration
      */
     public function up()
     {
+       
         Schema::create('delivery_guys', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->string('uniqid');
+            $table->string('phone_number');
+            $table->string('ride_reg_no');
             $table->timestamps();
         });
     }

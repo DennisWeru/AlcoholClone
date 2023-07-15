@@ -56,5 +56,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/post/portfolio', [SiteController::class, 'post_portfolio'])->name('post.portfolio');
     Route::post('/post/edit/product', [ProductController::class, 'post_edit_product'])->name('post.edit.product');
     Route::post('/post/newsletter', [SiteController::class, 'post_newsletter'])->name('post.newsletter');
+    Route::post('/pass/to/rider', [SiteController::class, 'pass.to.rider'])->name('pass.to.rider');
 
 });
