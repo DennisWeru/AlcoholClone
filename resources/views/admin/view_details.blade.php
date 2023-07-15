@@ -70,7 +70,7 @@
                             @if($cart->status !== '2')
                             <form action="{{ route('pass.to.rider') }}" method="POST">
                             <input type="hidden" value={!! $cart->uniqid  !!} name="uniqid"/>
-                            <a type="submit" class="btn btn-primary">Confirm Payments</a><br/><br/>
+                            <button type="submit" class="btn btn-primary">Pass order to rider</button><br/><br/>
                         </form>
                             @endif
                     </div>
