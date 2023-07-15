@@ -19,6 +19,7 @@ class CreateDeliveryGuysTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('uniqid');
+            $table->string('user_id');
             $table->string('phone_number');
             $table->string('ride_reg_no');
             $table->timestamps();
