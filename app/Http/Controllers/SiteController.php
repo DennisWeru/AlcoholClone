@@ -22,6 +22,7 @@ use App\Notifications\OrderReceivedSuccessfully;
 use App\Notifications\ConfirmOrder;
 use App\Notifications\ContactUs;
 use App\Notifications\NewsletterSent;
+use App\Notifications\RiderRegistration;
 use Illuminate\Support\Facades\Hash;
 class SiteController extends Controller
 {
@@ -30,6 +31,11 @@ class SiteController extends Controller
         $popular_drinks = Product::orderBy('tally', 'desc')->limit(3)->get();
         $category = Category::get();
         return view('site.home',compact('popular_drinks','category'));
+    }
+
+    public function reset_password(Request $request)
+    {
+        dd($request->uniqid);
     }
 
     public function add_portfolio(Request $request)
@@ -60,6 +66,8 @@ class SiteController extends Controller
             'phone_number' => $request->phone_number,
              'ride_reg_no' => $request->ride_reg_no,
         ]);
+
+        $user->notify(new RiderRegistration($user));
         Log::info("Delivery Person Added Successfully");
         $request->session()->flash("success","Delivery Person Added Successfully");
         return redirect()->back();

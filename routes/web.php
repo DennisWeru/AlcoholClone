@@ -31,6 +31,7 @@ Route::get('/product/details', [SiteController::class, 'product_details'])->name
 Route::get('/remove/product', [SiteController::class, 'remove_product'])->name('remove.product');
 Route::get('/set/cookie', [SiteController::class, 'set_cookie'])->name('set.cookie');
 Route::get('/get/cookie', [SiteController::class, 'get_cookie'])->name('get.cookie');
+Route::get('/reset/password', [SiteController::class, 'reset_password'])->name('reset.password');
 
 Auth::routes();
 

@@ -10,15 +10,15 @@ use Illuminate\Notifications\Notification;
 class RiderRegistration extends Notification
 {
     use Queueable;
-
+    protected $user;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -41,8 +41,9 @@ class RiderRegistration extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->greeting('Hello '.$this->user->name)
+                    ->line('Welcome to Terah Wines.')
+                    ->action('Reset Password', url('/'))
                     ->line('Thank you for using our application!');
     }
 
