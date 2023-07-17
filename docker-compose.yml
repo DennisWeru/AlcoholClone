@@ -1,15 +1,12 @@
 version: '3.8'
 services:
     
-    #networks
-    # networks:
-    # laravel:
-    #     driver: bridge
+    
     # Web Server
-    app:
-      build:
-          context: .
-      # working_dir: /var/www
+    apache:
+      image: httpd
+      
+      working_dir: /var/www
       tty: true
       
       restart: unless-stopped
@@ -19,19 +16,14 @@ services:
         - ./:/var/www
       depends_on:
         - "database"    
-        - "php"
-      environment:
-      - APP_ENV=local
-      - APP_DEBUG=true  
-      # networks:
-      #   - laravel    
+        - "php"    
 
     php:
       build:
         context: .
         dockerfile: Dockerfile
       volumes:
-        - ./myapp:/var/www/html    
+        - ./:/var/www/html    
       
 
 
@@ -66,7 +58,7 @@ services:
         image: phpmyadmin:5.1
         environment:
             - PMA_ARBITRARY=1
-            - PMA_HOST=db
+            - PMA_HOST=localhost
             - PMA_USER=muniu
             - PMA_PASSWORD=D3ll_5400!!
             - PMA_PORT=3306
