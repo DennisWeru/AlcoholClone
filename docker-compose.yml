@@ -1,12 +1,15 @@
 version: '3.8'
 services:
     
-    
+    #networks
+    # networks:
+    # laravel:
+    #     driver: bridge
     # Web Server
     app:
       build:
           context: .
-      working_dir: /var/www
+      # working_dir: /var/www
       tty: true
       
       restart: unless-stopped
@@ -16,7 +19,12 @@ services:
         - ./:/var/www
       depends_on:
         - "database"    
-        - "php"    
+        - "php"
+      environment:
+      - APP_ENV=local
+      - APP_DEBUG=true  
+      # networks:
+      #   - laravel    
 
     php:
       build:
