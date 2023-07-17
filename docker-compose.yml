@@ -1,3 +1,11 @@
+version: "3.7"
+services:
+
+
+networks:
+  drinksale:
+    driver: bridge  
+  
   app:
     build:
       args:
@@ -5,11 +13,11 @@
         uid: 1000
       context: ./
       dockerfile: Dockerfile
-    image: travellist
-    container_name: travellist-app
+    image: drinksale
+    container_name: drinksale-app
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
       - ./:/var/www
     networks:
-      - travellist
+      - drinksale
