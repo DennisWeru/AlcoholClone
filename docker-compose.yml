@@ -3,9 +3,9 @@ services:
     
     
     # Web Server
-    apache:
-      image: httpd
-      
+    app:
+      build:
+          context: .
       working_dir: /var/www
       tty: true
       
@@ -16,6 +16,14 @@ services:
         - ./:/var/www
       depends_on:
         - "database"    
+        - "php"    
+
+    php:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      volumes:
+        - ./myapp:/var/www/html    
       
 
 
@@ -46,7 +54,7 @@ services:
       
 
     # Database management
-    pma:
+    phpmyadmin:
         image: phpmyadmin:5.1
         environment:
             - PMA_ARBITRARY=1
