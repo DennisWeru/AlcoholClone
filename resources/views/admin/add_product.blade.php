@@ -22,19 +22,19 @@
                                     @csrf
                             <div class="form-group{{ $errors->has('application_form') ? ' has-danger' : '' }}">
                                     <label class="form-control-label">{{ __('Name') }}<span style="color:red">*</span></label>
-                                <input type="text" name="name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Name" value="" required autofocus>
+                                <input required type="text" name="name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Name" value="" required autofocus>
                                 </div>
 
                                 <div class="form-group{{ $errors->has('application_form') ? ' has-danger' : '' }}">
                                     <label class="form-control-label">{{ __('Main Photo') }}<span style="color:red">*</span></label>
-                                <input type="file" name="main_photo" class="form-control form-control-alternative{{ $errors->has('main_photo') ? ' is-invalid' : '' }}" accept=".png,.jpg,.gif,.JPEG" value="" required autofocus>
+                                <input required type="file" name="main_photo" class="form-control form-control-alternative{{ $errors->has('main_photo') ? ' is-invalid' : '' }}" accept=".png,.jpg,.gif,.JPEG" value="" required autofocus>
                                 </div>
 
 
                                 <div class="form-group{{ $errors->has('content') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label">{{ __('Description') }}</label>
+                                    <label class="form-control-label">{{ __('Description') }}<span style="color:red">*</span></label>
 
-                                    <textarea name="description" class="editor_text_area form-control form-control-alternative{{ $errors->has('content') ? ' is-invalid' : '' }}" placeholder="{{ __('Product Specification and Description') }}" value="{{ old('content') }}" rows="4"></textarea>
+                                    <textarea required name="description" class="editor_text_area form-control form-control-alternative{{ $errors->has('content') ? ' is-invalid' : '' }}" placeholder="{{ __('Product Specification and Description') }}" value="{{ old('content') }}" rows="4"></textarea>
 
                                     @if ($errors->has('content'))
                                         <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
 
                                <div class="form-group{{ $errors->has('application_form') ? ' has-danger' : '' }}">
                                     <label class="form-control-label">{{ __('Category') }}<span style="color:red">*</span></label>
-                                <select name="category" class="form-control" required>
+                                <select   name="category" class="form-control" required>
                                     @foreach($categories as $category => $values)
                                     <option value={!! $values->id !!}>{!! $values->name !!}</option>
                                         @endforeach
@@ -70,7 +70,7 @@
 
                                 <div class="form-group{{ $errors->has('application_form') ? ' has-danger' : '' }}">
                                     <label class="form-control-label">{{ __('Other Photos') }}</label>
-                                <input type="file" name="other_photos[]" class="form-control form-control-alternative{{ $errors->has('other_photos') ? ' is-invalid' : '' }}" accept=".png,.jpg,.gif,.JPEG" value=""  autofocus multiple>
+                                <input required type="file" name="other_photos[]" class="form-control form-control-alternative{{ $errors->has('other_photos') ? ' is-invalid' : '' }}" accept=".png,.jpg,.gif,.JPEG" value=""  autofocus multiple>
                                 </div>
 
                                 <div class="form-group{{ $errors->has('application_form') ? ' has-danger' : '' }}">

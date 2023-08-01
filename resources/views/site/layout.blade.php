@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Alcohol Sale</title>
-	
+
 
   	<!-- Facebook and Twitter integration -->
 
@@ -408,20 +408,20 @@
 
 
 	<!-- <div class="page-inner"> -->
-	<nav class="gtco-nav" role="navigation" style="position:fixed;top:0;width:100%;overflow: hidden;
+	<nav class="gtco-nav" id="gtco-nav-top" role="navigation" style="position:fixed;top:0;width:100%;overflow: hidden;
     background-color: #333333">
 		<div class="gtco-container">
 
 			<div class="row">
-				<div class="col-sm-4 col-xs-12">
+				<div class="col-sm-6 col-xs-12">
 					<div id="gtco-logo">
                         <a href="/">
                         {{-- <img src="/images/Kaiser_white.png" height="70px"> --}}
-                        <h2>Terah Wines</h2>
+                        Terah Wines
                     </a>
                     </div>
 				</div>
-				<div class="col-xs-8 text-right menu-1">
+				<div class="col-xs-8 col-sm-6  text-right menu-1">
 					<ul>
 						{{-- <li><a href="{!! route('about') !!}">About Us</a></li> --}}
 						<li>
@@ -456,6 +456,9 @@
 			</div>
 
 		</div>
+    <span class="cart-wrapper">
+        <a id="cart-btn"  href="{!! route('cart.page') !!}" class="btn-xs" style="z-index:1000; height:30px; width:60px; position: relative;" title="View Shopping Cart" cursor="pointer"><i class="fa fa-shopping-cart fa-2x" style="align-content: center; top:20"></i><span class="cart_length" style="font-weight:bolder;"></span></a>
+    </span>
 	</nav>
 
 
@@ -541,11 +544,10 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-
-
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" >
+                            <div class="overflow-hide">
                             <img src="" class="card-img-top product_image" alt="...">
+                            </div>
 
                             <div class="card-body">
 
@@ -559,7 +561,6 @@
                        </center>
                           </div>
                       </div>
-                </div>
                 <div class="modal-footer">
 {{--
                   <button type="button" class="btn btn-secondary close_btn" data-dismiss="modal">Close</button> --}}

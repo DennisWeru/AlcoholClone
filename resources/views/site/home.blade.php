@@ -5,8 +5,6 @@
     <div class="gtco-container">
         <div class="row">
             <div class="col-md-12 col-md-offset-0 text-left">
-
-
                 <svg viewbox="0 0 0 0" width="0" height="0" style="display:block;position:relative;left:0px;top:0px;">
                     <defs>
                         <filter id="jssor_1_flt_1" x="-50%" y="-50%" width="200%" height="200%">
@@ -127,7 +125,7 @@
         </div>
         <div class="row">
             @foreach($popular_drinks as $drinks => $value)
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <a class="fh5co-card-item view_details" id="{!! $value->uniqid !!}">
                     <figure>
                         <div class="overlay view_details" id="{!! $value->uniqid !!}"><i class="ti-plus"></i></div>
@@ -175,9 +173,9 @@
             </div>
             @endif
             @endforeach
-     
 
-         
+
+
     </div>
 </div>
 

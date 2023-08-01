@@ -1,79 +1,74 @@
-version: '3.8'
+version: "3.8"
 services:
-    
-    
-    # Web Server
-    apache:
-      image: httpd
-      
-      working_dir: /var/www
-      tty: true
-      
-      restart: unless-stopped
-      ports:
-        - 8002:80
-      volumes:
-        - ./:/var/www
-      depends_on:
-        - "database"    
-        - "php"    
+  # Web Server
+  apache:
+    image: httpd
 
-    php:
-      build:
-        context: .
-        dockerfile: Dockerfile
-      volumes:
-        - ./:/var/www/html    
-      
+    working_dir: /var/www
+    tty: true
 
+    restart: unless-stopped
+    ports:
+      - 8002:80
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - "database"
+      - "php"
 
-    # Database
-    database:
-        image: mysql:8.0
-        container_name: mysql
-        volumes:
-            - dbdata:/var/lib/mysql
-        environment:
-            MYSQL_DATABASE: drinkSales
-            MYSQL_ROOT_PASSWORD: D3ll_5400!!
-            MYSQL_PASSWORD: D3ll_5400!!
-            MYSQL_USER: muniu
-        ports:
-            - 4406:3306
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        user: dennis
+        uid: 1000
+    volumes:
+      - ./:/var/www/html
 
-    artisan:
-        build:
-          context: .
-          dockerfile: Dockerfile
-        container_name: artisan
-        volumes:
-            - ./:/var/www
-            
+  # Database
+  database:
+    image: mysql:8.0
+    container_name: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: alcohol_pos
+      MYSQL_ROOT_PASSWORD: phpmyadminR00+
+      MYSQL_PASSWORD: phpmyadminR00+
+      MYSQL_USER: root
+    ports:
+      - 4406:3306
 
-  
-      
+  artisan:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: artisan
+    volumes:
+      - ./:/var/www
 
-    # Database management
-    phpmyadmin:
-        image: phpmyadmin:5.1
-        environment:
-            - PMA_ARBITRARY=1
-            - PMA_HOST=localhost
-            - PMA_USER=muniu
-            - PMA_PASSWORD=D3ll_5400!!
-            - PMA_PORT=3306
-        depends_on:
-            - database
-        ports:
-            - 8888:80
-    # Mailing Server
-    mailhog:
-        image: mailhog/mailhog
-        logging:
-            driver: 'none'
-        ports:
-            - 1025:1025 
-            - 8025:8025 
+  # Database management
+  phpmyadmin:
+    image: phpmyadmin:5.1
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=localhost
+      - PMA_USER=root
+      - PMA_PASSWORD=phpmyadminR00+
+      - PMA_PORT=3306
+    depends_on:
+      - database
+    ports:
+      - 8888:80
+  # Mailing Server
+  mailhog:
+    image: mailhog/mailhog
+    logging:
+      driver: "none"
+    ports:
+      - 1025:1025
+      - 8025:8025
 
 volumes:
-    dbdata:
+  dbdata:
